@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -8,6 +8,13 @@ const SignUp = () => {
     const [email, setEmail] = useState("");
     const navigate = useNavigate();
     
+    useEffect(() => {
+        const auth = localStorage.getItem('user');
+        if(auth) {
+            navigate("/");
+        }
+    });
+
     const submitForm = async () => {
         let result = await fetch("http://localhost:5000/register", {
             method: 'post',
