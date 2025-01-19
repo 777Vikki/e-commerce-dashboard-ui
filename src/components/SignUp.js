@@ -16,17 +16,21 @@ const SignUp = () => {
     });
 
     const submitForm = async () => {
-        let result = await fetch("http://localhost:5000/register", {
-            method: 'post',
-            body: JSON.stringify({name, email, password}),
-            headers: {
-                'Content-Type': 'application/json',
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if(name && name.trim() && password &&  password.trim() && email && emailRegex.test(email)) {
+            let apiResponse = await fetch("http://localhost:5000/register", {
+                method: 'post',
+                body: JSON.stringify({name, email, password}),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+            apiResponse = await apiResponse.json();
+            if(apiResponse?.result) {
+                navigate('/login')
             }
-        });
-        result = await result.json();
-        localStorage.setItem('user', JSON.stringify({name: result.name, email: result.email}));
-        if(result) {
-            navigate('/')
+        } else {
+            alert("Please enter valid input");
         }
     }
 
