@@ -56,6 +56,21 @@
   text-align: right;
 }
 
+.product-list {
+  text-align: center;
+  margin-top: 50px;
+  
+  ul {
+    margin: 0px;
+    li {
+      display: inline-block;
+      border: 1px solid skyblue;
+      padding: 5px;
+      width: 150px;
+    }
+  }
+}
+
 .logo {
   width: 45px;
   border-radius: 50%;
