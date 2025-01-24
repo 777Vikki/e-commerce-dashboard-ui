@@ -9,7 +9,7 @@ const AddProduct = () => {
     const onAddProduct = async () => {
         const userId = JSON.parse(localStorage.getItem('user'))._id;
         if(name && price && category && company && userId) {
-            let apiResponse = await fetch("http://localhost:5000/add-product", {
+            let apiResponse = await fetch("http://localhost:5000/product", {
                 method: 'post',
                 body: JSON.stringify({name, price, category, company, userId}),
                 headers: {
