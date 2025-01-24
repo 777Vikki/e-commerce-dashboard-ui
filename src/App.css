@@ -71,6 +71,14 @@
   }
 }
 
+.search-product-box {
+  width: 400px;
+  margin: 20px;
+  height: 40px;
+  border: 1px solid skyblue;
+  padding-left: 20px;
+}
+
 .logo {
   width: 45px;
   border-radius: 50%;
