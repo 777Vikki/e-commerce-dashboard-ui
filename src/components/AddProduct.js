@@ -18,7 +18,11 @@ const AddProduct = () => {
             });
             apiResponse = await apiResponse.json();
             if(apiResponse?.result) {
-                
+                alert('Product added successfully');
+                setName('');
+                setPrice('');
+                setCategory('');
+                setCompany('');
             }   
         } else {
         }
